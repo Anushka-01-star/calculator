@@ -1,0 +1,158 @@
+:root {
+    --bg-color: #f0f2f5;
+    --calculator-bg: #ffffff;
+    --display-bg: #ffffff;
+    --display-color: #222222;
+    --display-border-color: #e0e0e0;
+    --numeric-bg: #ffffff;
+    --numeric-color: #333333;
+    --numeric-hover-bg: #f7f7f7;
+    --operator-bg: #ffc107;
+    --operator-color: #ffffff;
+    --operator-hover-bg: #ffca28;
+    --memory-bg: #f5f5f5;
+    --memory-color: #333333;
+    --memory-hover-bg: #eeeeee;
+    --scientific-bg: #f5f5f5;
+    --scientific-color: #333333;
+    --scientific-hover-bg: #eeeeee;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-color);
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calculator {
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    overflow: hidden;
+    background-color: var(--calculator-bg);
+    width: 100%;
+    max-width: 375px; /* Mobile-first approach */
+    display: flex;
+    flex-direction: column;
+}
+
+.display {
+    background-color: var(--display-bg);
+    padding: 25px 20px;
+    border-bottom: 1px solid var(--display-border-color);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.display input {
+    width: 100%;
+    border: none;
+    background: none;
+    color: var(--display-color);
+    font-size: 56px;
+    text-align: right;
+    font-weight: 300;
+    box-sizing: border-box;
+    min-width: -webkit-fill-available; /* Ensures input expands */
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px; /* Creates the subtle grid lines */
+    background-color: #e0e0e0; /* Grid line color */
+}
+
+button {
+    border: none;
+    font-size: 22px;
+    padding: 20px 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+/* --- Button Categories --- */
+.numeric {
+    background-color: var(--numeric-bg);
+    color: var(--numeric-color);
+}
+
+.numeric:hover {
+    background-color: var(--numeric-hover-bg);
+}
+
+.operator {
+    background-color: var(--operator-bg);
+    color: var(--operator-color);
+    font-weight: bold;
+}
+
+.operator:hover {
+    background-color: var(--operator-hover-bg);
+}
+
+.memory, .scientific {
+    background-color: var(--memory-bg);
+    color: var(--memory-color);
+}
+
+.memory:hover, .scientific:hover {
+    background-color: var(--memory-hover-bg);
+}
+
+.clear {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.clear:hover {
+    background-color: #d5d5d5;
+}
+
+.equals {
+    grid-column: span 2; /* Make equals button wider */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 400px) {
+    .calculator {
+        border-radius: 0;
+        box-shadow: none;
+        height: 100vh;
+        max-width: 100%;
+    }
+
+    .display input {
+        font-size: 48px;
+    }
+
+    button {
+        font-size: 20px;
+    }
+}
+
+/* --- Animation for Display Update --- */
+.display input.updated {
+    animation: pulse 0.1s ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+}

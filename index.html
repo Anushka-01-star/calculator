@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">
+            <input type="text" id="result" disabled placeholder="0" title="Calculator Display">
+        </div>
+        <div class="buttons">
+            <!-- Row 1 -->
+            <button data-action="mc" class="memory">mc</button>
+            <button data-action="mr" class="memory">mr</button>
+            <button data-action="m-" class="memory">m-</button>
+            <button data-action="m+" class="memory">m+</button>
+            <button data-value="/" class="operator">÷</button>
+            <!-- Row 2 -->
+            <button data-action="sqrt" class="scientific">√</button>
+            <button data-value="7" class="numeric">7</button>
+            <button data-value="8" class="numeric">8</button>
+            <button data-value="9" class="numeric">9</button>
+            <button data-value="*" class="operator">×</button>
+            <!-- Row 3 -->
+            <button data-action="pow" class="scientific">xʸ</button>
+            <button data-value="4" class="numeric">4</button>
+            <button data-value="5" class="numeric">5</button>
+            <button data-value="6" class="numeric">6</button>
+            <button data-value="-" class="operator">−</button>
+            <!-- Row 4 -->
+            <button data-action="percent" class="scientific">%</button>
+            <button data-value="1" class="numeric">1</button>
+            <button data-value="2" class="numeric">2</button>
+            <button data-value="3" class="numeric">3</button>
+            <button data-value="+" class="operator">+</button>
+            <!-- Row 5 -->
+            <button data-action="clear" class="clear">C</button>
+            <button data-value="0" class="numeric">0</button>
+            <button data-value="." class="numeric">.</button>
+            <button data-action="calculate" class="operator equals">=</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
